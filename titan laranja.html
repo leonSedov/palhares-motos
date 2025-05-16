@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palhares Motos</title>
+  
+  <!-- Ícone da aba do navegador -->
+  <link rel="icon" href="Captura de tela 2025-05-15 222533.png" type="image/webp">
+  
+  <!-- Incluindo Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Links adicionais de CSS -->
+  <link rel="stylesheet" id="widget-social-icons-css" href="./Palhares motos – Agencia Tráfego Mestre_files/widget-social-icons.min.css" media="all">
+  <link rel="stylesheet" id="elementor-frontend-css" href="./Palhares motos – Agencia Tráfego Mestre_files/frontend.min.css" media="all">
+  <link rel="stylesheet" id="e-animation-grow-css" href="./Palhares motos – Agencia Tráfego Mestre_files/e-animation-grow.min.css" media="all">
+  <link rel="stylesheet" id="e-sticky-css" href="./Palhares motos – Agencia Tráfego Mestre_files/sticky.min.css" media="all">
+  
+  <style>
+    /* RESET E ESTILOS GLOBAIS */
+    /* Reset básico para remover margens e paddings padrão */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Estilos gerais do corpo do documento */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HEADER/NAVBAR */
+    /* Estilização da barra de navegação */
+    header.navbar {
+      background-color: #000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+      height: 100px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Estilo do logo */
+    .logo img {
+      height: 80px;
+      max-width: 100%;
+      transition: transform 0.3s;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Menu principal */
+    .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    /* Links do menu */
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s;
+      padding: 5px 0;
+      position: relative;
+    }
+
+    /* Efeito hover e active para links */
+    .menu a.active,
+    .menu a:hover {
+      color: red;
+    }
+
+    /* Efeito sublinhado animado */
+    .menu a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: red;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Botão de contato */
+    .contato-btn a {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .contato-btn a:hover {
+      background-color: #c10000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Menu hamburguer para mobile */
+    .hamburguer {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .hamburguer span {
+      width: 25px;
+      height: 3px;
+      background: red;
+      display: block;
+      transition: all 0.3s;
+    }
+
+    /* Efeito de animação quando o menu está ativo */
+    .hamburguer.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburguer.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburguer.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* SEÇÃO DE DESTAQUE DA MOTO */
+    .moto-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    /* Galeria de imagens */
+    .moto-gallery {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .moto-gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .moto-gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Miniaturas das imagens */
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .thumbs img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .thumbs img:hover {
+      border-color: #ccc;
+    }
+
+    .thumbs img.active {
+      border-color: red;
+      transform: scale(1.05);
+    }
+
+    /* Informações da moto */
+    .moto-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .moto-info h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .moto-info p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    /* Preço */
+    .preco {
+      font-size: 24px;
+      font-weight: bold;
+      color: red;
+      margin: 20px 0;
+    }
+
+    /* BOTÃO WHATSAPP VERDE */
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #25D366; /* Verde do WhatsApp */
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128C7E; /* Verde mais escuro para hover */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .whatsapp-btn i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 30px;
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+    }
+
+    .footer-column h3 {
+      font-size: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      color: red;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 8px 0;
+      display: block;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* Ícones sociais */
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: red;
+      transform: translateY(-3px);
+    }
+
+    /* Imagem de formas de pagamento */
+    .payment-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    /* Rodapé inferior */
+    .footer-bottom {
+      background-color: #0a0a0a;
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 13px;
+      border-top: 1px solid #222;
+    }
+
+    .footer-bottom p {
+      margin: 5px 0;
+      color: #999;
+    }
+
+    .footer-bottom a {
+      color: red;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom a:hover {
+      color: #c10000;
+      text-decoration: underline;
+    }
+
+    /* MEDIA QUERIES PARA RESPONSIVIDADE */
+    @media (max-width: 992px) {
+      .menu a {
+        font-size: 16px;
+      }
+      
+      .moto-header {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Ajustes para navbar mobile */
+      .hamburguer {
+        display: flex;
+      }
+
+      .menu,
+      .contato-btn {
+        display: none;
+        width: 100%;
+        background-color: #000;
+        padding: 10px 0;
+      }
+
+      .menu {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .menu a,
+      .contato-btn a {
+        padding: 10px 30px;
+      }
+
+      .menu.active,
+      .contato-btn.active {
+        display: flex;
+      }
+
+      header.navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 15px;
+      }
+
+      .logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Ajustes para conteúdo principal */
+      .container {
+        padding: 15px;
+        margin: 10px auto;
+      }
+
+      .moto-info h1 {
+        font-size: 24px;
+      }
+
+      /* Ajustes para o footer */
+      .footer-top {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 30px;
+      }
+
+      .footer-column {
+        margin-bottom: 20px;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Ajustes finos para telas muito pequenas */
+      .thumbs img {
+        width: 60px;
+        height: 45px;
+      }
+
+      .preco {
+        font-size: 20px;
+      }
+
+      .contato-btn a {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .whatsapp-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+      }
+
+      .footer-bottom {
+        padding: 15px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- CABEÇALHO / NAVEGAÇÃO -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="Palhares motos – Agencia Tráfego Mestre_files/palhares_motos_foto_pefil-removebg-preview.webp" alt="Palhares Motos">
+      <!-- Botão hamburguer visível apenas em mobile -->
+      <div class="hamburguer" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Menu principal -->
+    <nav class="menu" id="menu">
+      <a href="#" class="active">Home</a>
+      <a href="#">Catálogo</a>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+    </nav>
+
+    <!-- Botão de contato -->
+    <div class="contato-btn" id="contato">
+      <a href="https://www.whatsapp.com/catalog/558498405785/?app_absent=0"><i class="fas fa-phone-alt"></i> ENTRE EM CONTATO</a>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="container">
+    <div class="moto-header">
+        <!-- Galeria de imagens da moto -->
+        <div class="moto-gallery">
+             <img id="mainImage" src="Palhares motos – Agencia Tráfego Mestre_files/titan-laranja.webp" alt="Honda CG 160 Titan laranja">
+            <div class="thumbs">
+                <img src="Palhares motos – Agencia Tráfego Mestre_files/titan-laranja.webp" alt="Vista frontal da moto" onclick="changeImage(this)" class="active">
+                <img src="Palhares motos – Agencia Tráfego Mestre_files/titan-laranja.webp" alt="Vista lateral da moto" onclick="changeImage(this)">
+                <img src="Palhares motos – Agencia Tráfego Mestre_files/titan-laranja.webp" alt="Vista traseira da moto" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <!-- Informações detalhadas da moto -->
+        <div class="moto-info">
+            <h1>Honda CG 160 Titan laranja</h1>
+            <p><strong>Ano:</strong> 2025</p>
+            <p><strong>Descrição:</strong> Painel digital blackout com indicador de marcha e consumo instantâneo de combustível.</p>
+            <p><strong>Motor:</strong> Monocilíndrico, 4 tempos, arrefecido a ar</p>
+            <p><strong>Cilindrada:</strong> 162,7 cc</p>
+            <p><strong>Potência:</strong> 15,1 cv a 8.000 rpm</p>
+            <p><strong>Torque:</strong> 1,54 kgf.m a 6.000 rpm</p>
+            <p><strong>Transmissão:</strong> 5 velocidades</p>
+            <p><strong>Capacidade do tanque:</strong> 16,1 litros</p>
+            <p><strong>Consumo médio:</strong> 40 km/l</p>
+            <div class="preco">R$ 23.500,00</div>
+            <a href="https://www.whatsapp.com/catalog/558498405785/?app_absent=0" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> ENTRAR EM CONTATO
+            </a>
+        </div>
+    </div>
+</div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-top">
+      <!-- Coluna de links rápidos -->
+      <div class="footer-column">
+        <h3>Links Rápidos</h3>
+        <a href="#"><i class="fas fa-chevron-right"></i> Catálogo</a>
+        <a href="#"><i class="fas fa-chevron-right"></i> Sobre</a>
+        <a href="#"><i class="fas fa-chevron-right"></i> Termos de serviços</a>
+      </div>
+
+      <!-- Coluna de informações de contato -->
+      <div class="footer-column">
+        <h3>Informações</h3>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong><br>
+        AV ENEAS CAVALCANTE 1273 - FT SL-03<br>
+        POSTO DE COMBUSTIVEL<br>
+        CENTRO/ÁREA URBANA<br>
+        59570-000 CEARA MIRIM RN</p>
+        <p><i class="far fa-clock"></i> <strong>Dias/Horários de Trabalho:</strong><br>
+        Seg A qui / 7h30 – 17h30<br>
+        Sexta 7h30 – 16h30</p>
+      </div>
+
+      <!-- Coluna de contatos -->
+      <div class="footer-column">
+        <h3>Contatos</h3>
+        <p><i class="fas fa-phone"></i> <strong>Telefone:</strong><br>(84) 9840-5785</p>
+        <p><i class="fas fa-envelope"></i> <strong>Email:</strong><br>palharesmotos@gmail.com</p>
+        <div class="social-icons">
+          <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram" href="https://www.instagram.com/palhares_motos?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank">
+            <svg class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+            </svg>
+          </a>
+          <a class="elementor-icon elementor-social-icon elementor-social-icon-threads" href="https://www.threads.com/@palhares_grau?xmt=AQF0i_BwEGnc2LPXiemRz0t6N7Q9Vxy3uaDKrJb4Rscz8Tw" target="_blank">
+            <svg class="e-font-icon-svg e-fab-threads" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M331.5 235.7c2.2 .9 4.2 1.9 6.3 2.8c29.2 14.1 50.6 35.2 61.8 61.4c15.7 36.5 17.2 95.8-30.3 143.2c-36.2 36.2-80.3 52.5-142.6 53h-.3c-70.2-.5-124.1-24.1-160.4-70.2c-32.3-41-48.9-98.1-49.5-169.6V256v-.2C17 184.3 33.6 127.2 65.9 86.2C102.2 40.1 156.2 16.5 226.4 16h.3c70.3 .5 124.9 24 162.3 69.9c18.4 22.7 32 50 40.6 81.7l-40.4 10.8c-7.1-25.8-17.8-47.8-32.2-65.4c-29.2-35.8-73-54.2-130.5-54.6c-57 .5-100.1 18.8-128.2 54.4C72.1 146.1 58.5 194.3 58 256c.5 61.7 14.1 109.9 40.3 143.3c28 35.6 71.2 53.9 128.2 54.4c51.4-.4 85.4-12.6 113.7-40.9c32.3-32.2 31.7-71.8 21.4-95.9c-6.1-14.2-17.1-26-31.9-34.9c-3.7 26.9-11.8 48.3-24.7 64.8c-17.1 21.8-41.4 33.6-72.7 35.3c-23.6 1.3-46.3-4.4-63.9-16c-20.8-13.8-33-34.8-34.3-59.3c-2.5-48.3 35.7-83 95.2-86.4c21.1-1.2 40.9-.3 59.2 2.8c-2.4-14.8-7.3-26.6-14.6-35.2c-10-11.7-25.6-17.7-46.2-17.8H227c-16.6 0-39 4.6-53.3 26.3l-34.4-23.6c19.2-29.1 50.3-45.1 87.8-45.1h.8c62.6 .4 99.9 39.5 103.7 107.7l-.2 .2zm-156 68.8c1.3 25.1 28.4 36.8 54.6 35.3c25.6-1.4 54.6-11.4 59.5-73.2c-13.2-2.9-27.8-4.4-43.4-4.4c-4.8 0-9.6 .1-14.4 .4c-42.9 2.4-57.2 23.2-56.2 41.8l-.1 .1z"></path>
+            </svg>
+          </a>
+          <a class="elementor-icon elementor-social-icon elementor-social-icon-gift" href="https://palharesgrau.me/campanha/saveiro-de-manobra?fbclid=PAQ0xDSwKPgR5leHRuA2FlbQIxMQABp73w92EeMn8MAHMoES9QARRFyb-UAYI4nC_Q8lY5evgBHle1E398uc_oV_5a_aem_oA5_Eg5wUMWkJDiMd_-w4A" target="_blank">
+            <svg class="e-font-icon-svg e-fas-gift" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna de formas de pagamento -->
+      <div class="footer-column">
+        <h3>Formas de Pagamento</h3>
+        <img src="Palhares motos – Agencia Tráfego Mestre_files/logotipos-1-1-1024x420.webp" alt="Formas de pagamento aceitas: Visa, Mastercard, Pix, Boleto" class="payment-img">
+      </div>
+    </div>
+    
+
+    <!-- Rodapé inferior -->
+    <div class="footer-bottom">
+ 
+      <p>© 2025 Palhares Motos. Todos os direitos reservados.</p>
+      <p>Desenvolvido por <a href="https://www.instagram.com/proj.oraculo/">Projeto oráculo</a></p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    /**
+     * Função para alternar o menu mobile
+     */
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      const contato = document.getElementById('contato');
+      const hamburguer = document.querySelector('.hamburguer');
+      
+      menu.classList.toggle('active');
+      contato.classList.toggle('active');
+      hamburguer.classList.toggle('active');
+    }
+
+    /**
+     * Função para trocar a imagem principal ao clicar nas miniaturas
+     * @param {HTMLElement} el - Elemento da miniatura clicada
+     */
+    function changeImage(el) {
+      const mainImage = document.getElementById('mainImage');
+      
+      // Animação de fade out
+      mainImage.style.opacity = '0';
+      
+      // Após a animação, troca a imagem e faz fade in
+      setTimeout(() => {
+        mainImage.src = el.src;
+        mainImage.alt = el.alt;
+        mainImage.style.opacity = '1';
+        
+        // Remove a classe active de todas as miniaturas e adiciona apenas na clicada
+        document.querySelectorAll('.thumbs img').forEach(img => {
+          img.classList.remove('active');
+        });
+        el.classList.add('active');
+      }, 200);
+    }
+
+    /**
+     * Adiciona um listener para carregar funções quando o DOM estiver pronto
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+      // Pode adicionar mais funcionalidades aqui se necessário
+    });
+  </script>
+</body>
+</html>
