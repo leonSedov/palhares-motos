@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Serviço | Palhares Motos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D32F2F;
+            --primary-dark: #B71C1C;
+            --secondary: #263238;
+            --accent: #FFC107;
+            --light: #ECEFF1;
+            --dark: #212121;
+            --gray: #607D8B;
+            --white: #FFFFFF;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .legal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .legal-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legal-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .legal-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .legal-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        /* Main Content */
+        .legal-content {
+            background-color: var(--white);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 60px;
+            margin: -40px auto 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 30px;
+                margin: -20px auto 40px;
+            }
+        }
+
+        /* Article Styling */
+        .legal-article {
+            margin-bottom: 50px;
+        }
+
+        .legal-article h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+            position: relative;
+        }
+
+        .legal-article h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .legal-article p {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .legal-article ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .legal-article li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .legal-article li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .highlight {
+            background-color: rgba(255, 193, 7, 0.2);
+            padding: 0 5px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .legal-footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .legal-footer p {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--secondary);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .legal-article {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .legal-article:nth-child(1) { animation-delay: 0.1s; }
+        .legal-article:nth-child(2) { animation-delay: 0.2s; }
+        .legal-article:nth-child(3) { animation-delay: 0.3s; }
+        .legal-article:nth-child(4) { animation-delay: 0.4s; }
+        .legal-article:nth-child(5) { animation-delay: 0.5s; }
+        .legal-article:nth-child(6) { animation-delay: 0.6s; }
+        .legal-article:nth-child(7) { animation-delay: 0.7s; }
+        .legal-article:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background-color: var(--accent);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Hero Section -->
+    <section class="legal-hero">
+        <div class="legal-container">
+            <div class="legal-hero-content">
+                <h1>Termos de Serviço</h1>
+                <div class="last-updated">Última atualização: 16 de maio de 2025</div>
+                <p>Bem-vindo ao site da Palhares Motos! Ao acessar e utilizar nosso catálogo online, você concorda com os termos e condições abaixo.</p>
+                <a href="#content" class="btn btn-outline">Ler Termos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="legal-container" id="content">
+        <article class="legal-content">
+            <section class="legal-article">
+                <h2>1. Sobre o Site</h2>
+                <p>O site da Palhares Motos tem como objetivo <span class="highlight">disponibilizar um catálogo online</span> das motos disponíveis em nossa loja física, para facilitar o acesso às informações e permitir que os clientes conheçam nossos produtos com praticidade.</p>
+            </section>
+
+            <section class="legal-article">
+                <h2>2. Atendimento</h2>
+                <p>Nosso atendimento é realizado de forma <span class="highlight">exclusiva e personalizada</span> via WhatsApp. Não realizamos vendas diretamente pelo site, mas disponibilizamos meios de contato para negociação, agendamento de visita e esclarecimento de dúvidas.</p>
+            </section>
+
+            <section class="legal-article">
+                <h2>3. Informações dos Produtos</h2>
+                <p>As informações contidas no catálogo — como fotos, descrição, ano, quilometragem e valores — são atualizadas com frequência, mas <span class="highlight">podem sofrer alterações sem aviso prévio</span>. É responsabilidade do cliente confirmar os dados diretamente com a equipe antes de fechar qualquer negociação.</p>
+            </section>
+
+            <section class="legal-article">
+                <h2>4. Preços</h2>
+                <p>Os preços apresentados no site são estimativas e <span class="highlight">podem variar conforme análise, negociação ou promoções na loja física</span>. Garantimos a transparência no processo, mas os valores só são confirmados no momento do atendimento com a equipe da Palhares Motos.</p>
+            </section>
+
+            <section class="legal-article">
+                <h2>5. Responsabilidades</h2>
+                <p>A Palhares Motos se compromete a:</p>
+                <ul>
+                    <li>Fornecer informações claras e verdadeiras sobre as motos anunciadas</li>
+                    <li>Prestar atendimento cordial e transparente</li>
+                    <li>Respeitar a privacidade dos dados fornecidos pelos visitantes</li>
+                </ul>
+                <p>O cliente se compromete a:</p>
+                <ul>
+                    <li>Utilizar o site de forma ética e responsável</li>
+                    <li>Fornecer informações verdadeiras no contato</li>
+                    <li>Não reproduzir, copiar ou distribuir os conteúdos do site sem autorização</li>
+                </ul>
+            </section>
+
+            <section class="legal-article">
+                <h2>6. Propriedade Intelectual</h2>
+                <p>Todo o conteúdo do site, incluindo imagens, textos, logotipo e layout, é de propriedade da Palhares Motos e protegido por direitos autorais. A cópia ou uso indevido pode resultar em penalidades legais.</p>
+            </section>
+
+            <section class="legal-article">
+                <h2>7. Alterações nos Termos</h2>
+                <p>A Palhares Motos se reserva o direito de atualizar estes Termos de Serviço a qualquer momento. A versão mais recente estará sempre disponível nesta página.</p>
+            </section>
+
+            <section class="legal-article">
+                <h2>8. Contato</h2>
+                <p>Para dúvidas ou solicitações relacionadas aos termos, entre em contato conosco pelo WhatsApp disponível no site ou através das redes sociais oficiais.</p>
+            </section>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn">Concordar com os Termos</a>
+                <a href="javascript:history.back()" class="btn btn-outline" style="color: var(--secondary); border-color: var(--secondary);">Voltar</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="legal-footer">
+        <div class="legal-container">
+            <p>© 2025 Palhares Motos. Todos os direitos reservados.</p>
+            <p>Uma experiência premium em compra e venda de motocicletas.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </div>
+
+    <script>
+        // JavaScript Premium
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll Indicator
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            window.addEventListener('scroll', function() {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (scrollTop / scrollHeight) * 100;
+                scrollIndicator.style.width = scrolled + '%';
+            });
+
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth Scrolling for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Update Year in Footer
+            const yearElement = document.querySelector('.legal-footer p');
+            if (yearElement) {
+                const currentYear = new Date().getFullYear();
+                yearElement.textContent = yearElement.textContent.replace('2025', currentYear);
+            }
+
+            // Animation on Scroll
+            const animateOnScroll = function() {
+                const articles = document.querySelectorAll('.legal-article');
+                articles.forEach(article => {
+                    const articlePosition = article.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (articlePosition < screenPosition) {
+                        article.style.animationPlayState = 'running';
+                    }
+                });
+            };
+
+            // Run once on load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+</html>
